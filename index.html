@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心愿树 | 专属浪漫</title>
+    <link rel="stylesheet" href="indexcss.css">
+</head>
+<body>
+    
+    <iframe src="audio-player.html" style="position: fixed; top: 20px; right: 20px; width: 60px; height: 60px; border: none; z-index: 9999; border-radius: 50%;"></iframe>
+    
+    <!-- 动态爱心背景容器 -->
+    <div id="hearts"></div>
+    
+
+  
+
+    <!-- 底部随机情话 -->
+    <div id="randomMsg"></div>
+
+    <!-- 主卡片 -->
+    <div class="card">
+        <h1>亲爱的梦梦 ❤️</h1>
+        <p class="subtitle">这是赵赵给你做的小网页！情人节快乐!</p>
+
+        <!-- 正计时模块 -->
+        <div class="timer">
+            <div class="timer-title">我们在一起已经：</div>
+            <div class="timer-content">
+                <div class="time-box">
+                    <div class="time-num" id="days">0</div>
+                    <div class="time-text">天</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-num" id="hours">0</div>
+                    <div class="time-text">时</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-num" id="minutes">0</div>
+                    <div class="time-text">分</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-num" id="seconds">0</div>
+                    <div class="time-text">秒</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 跳转按钮（可根据需求修改链接） -->
+        <div class="btn-group">
+            <button class="jump-btn" onclick="window.location.href='gallery.html'">💓 心动瞬间</button>
+            <button class="jump-btn" onclick="window.location.href='quiz.html'">💘 专属问答</button>
+        </div>
+    </div>
+    
+    
+
+    <!-- 心愿树模块 -->
+    <div class="wish-tree-container">
+        <h2 class="wish-tree-title">我们的心愿树<span>💖</span></h2>
+        
+        <!-- 树视觉主体 -->
+        <div class="tree-wrapper" id="treeWrapper">
+            <div class="tree-canopy-base"></div>
+            <!-- 6个对称果实 -->
+            <div class="canopy-dot dot-1"></div>
+            <div class="canopy-dot dot-2"></div>
+            <div class="canopy-dot dot-3"></div>
+            <div class="canopy-dot dot-4"></div>
+            <div class="canopy-dot dot-5"></div>
+            <div class="canopy-dot dot-6"></div>
+            <!-- 树干 -->
+            <div class="tree-trunk"></div>
+            <!-- 对称分枝 -->
+            <div class="tree-main-branch main-branch-left"></div>
+            <div class="tree-main-branch main-branch-right"></div>
+            <div class="tree-sub-branch sub-branch-1"></div>
+            <div class="tree-sub-branch sub-branch-2"></div>
+        </div>
+
+        <!-- 心愿输入 -->
+        <div class="wish-input-area">
+            <input type="text" id="wishInput" placeholder="输入你的心愿，和宝贝一起许愿吧～" maxlength="50">
+            <button class="add-wish-btn" onclick="addWish()">✨ 许下心愿</button>
+        </div>
+
+        <!-- 心愿卡片展示 -->
+        <div class="wish-cards" id="wishCards"></div>
+    </div>
+
+     <script src="indexjs.js"></script>
+</body>
+</html>

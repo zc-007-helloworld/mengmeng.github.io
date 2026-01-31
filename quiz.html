@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>致我的宝贝 ❤️ | 专属问答</title>
+   <link rel="stylesheet" href="quiz_css.css">
+</head>
+<body>
+    <!-- 音频悬浮窗iframe -->
+    <iframe src="audio-player.html" style="position: fixed; top: 20px; right: 20px; width: 60px; height: 60px; border: none; z-index: 9999; border-radius: 50%;"></iframe>
+
+    <div id="randomMsg"></div>
+
+    <!-- 动态爱心背景 -->
+    <div id="hearts"></div>
+
+    <!-- 主卡片 -->
+    <div class="card">
+        <h1>专属小问答 💘</h1>
+        <p class="subtitle">测测梦梦和我的默契值～</p>
+
+        <!-- 默契值进度条 -->
+        <div class="tacit-progress">
+            <div class="progress-title">💘 我们的默契值：</div>
+            <div class="progress-bar-container">
+                <div id="progressBar"></div>
+            </div>
+            <div id="tacitValue">0/3题正确</div>
+        </div>
+
+        <!-- 问答模块 -->
+        <div class="quiz" id="quiz">
+            <div class="question" id="question">我们第一次约会的地方是哪里？</div>
+            <div class="options" id="options">
+                <button class="option-btn" data-answer="false">电影院</button>
+                <button class="option-btn" data-answer="true">公园湖边</button>
+                <button class="option-btn" data-answer="false">图书馆</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+            <button class="next-btn" id="nextBtn" onclick="nextQuestion()">下一题</button>
+        </div>
+
+        <!-- 最终祝福 -->
+        <div class="blessing" id="blessing">
+            梦梦<br>
+            谢谢你出现在我的生命里<br>
+            我最喜欢你啦！ ❤️<br>
+            
+        </div>
+
+        <!-- 返回首页按钮 -->
+        <button class="back-btn" onclick="window.location.href='index.html'">← 回到首页</button>
+    </div>
+
+    <!-- 彩蛋音效（隐藏） -->
+    <audio id="eggSound1" preload="auto">
+        <source src="egg-sound1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="eggSoundFinal" preload="auto">
+        <source src="egg-sound-final.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="quiz_js.js"></script>
+</body>
+</html>

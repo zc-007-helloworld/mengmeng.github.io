@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>致我的宝贝 ❤️ | 我们的回忆</title>
+     <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+    <!-- 背景音乐悬浮窗（全程不中断）（原有） -->
+    <iframe src="audio-player.html" style="position: fixed; top: 20px; right: 20px; width: 60px; height: 60px; border: none; z-index: 9999; border-radius: 50%;"></iframe>
+    
+    <div id="randomMsg"></div>
+
+    <!-- 动态爱心背景（原有） -->
+    <div id="hearts"></div>
+
+    <!-- 主卡片（原有） -->
+    <div class="card">
+        <h1>我们的专属回忆 📸</h1>
+        <p class="subtitle">每一张照片，都是我们的小美好</p>
+
+        <!-- 3D轮播相册模块（核心新增）（原有） -->
+        <div class="gallery-3d-container">
+            <div class="gallery-3d-carousel" id="carousel">
+                <!-- 照片卡片：替换成你们的照片+备注（原有） -->
+                <div class="gallery-3d-item" data-img="photo1.jpg" style="--rotate-y: 0deg;">
+                    <img src="photo1.jpg" alt="回忆照片1">
+                    <div class="gallery-3d-note">梦梦要亲我一万口！</div>
+                </div>
+                <div class="gallery-3d-item" data-img="photo2.jpg" style="--rotate-y: 72deg;">
+                    <img src="photo2.jpg" alt="回忆照片2">
+                    <div class="gallery-3d-note">梦梦说亲亲是奖励诶嘿嘿</div>
+                </div>
+                <div class="gallery-3d-item" data-img="photo3.jpg" style="--rotate-y: 144deg;">
+                    <img src="photo3.jpg" alt="回忆照片3">
+                    <div class="gallery-3d-note">默契瞬间！✨</div>
+                </div>
+                <div class="gallery-3d-item" data-img="photo4.jpg" style="--rotate-y: 216deg;">
+                    <img src="photo4.jpg" alt="回忆照片4">
+                    <div class="gallery-3d-note">梦梦的碎碎念💓</div>
+                </div>
+                <div class="gallery-3d-item" data-img="photo5.jpg" style="--rotate-y: 288deg;">
+                    <img src="photo5.jpg" alt="回忆照片5">
+                    <div class="gallery-3d-note">爱你！</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 图片预览弹窗（原有） -->
+        <div class="preview-modal" id="previewModal">
+            <span class="close-preview" id="closePreview">×</span>
+            <img src="" alt="预览照片" class="preview-content" id="previewImg">
+        </div>
+
+        <!-- 返回首页按钮（原有） -->
+        <button class="back-btn" onclick="window.location.href='index.html'">← 回到首页</button>
+    </div>
+
+    <script src="gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+
+        /* 全局基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", 微软雅黑, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        /* 动态爱心背景 */
+        .heart {
+            position: absolute;
+            width: clamp(10px, 2vw, 20px);
+            height: clamp(10px, 2vw, 20px);
+            background: #ff416c;
+            transform: rotate(45deg);
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.8;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .heart::before, .heart::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #ff416c;
+            border-radius: 50%;
+        }
+
+        .heart::before { top: -50%; left: 0; }
+        .heart::after { top: 0; left: -50%; }
+
+        @keyframes float {
+            0% { transform: rotate(45deg) translateY(0) scale(0.8); opacity: 0.7; }
+            50% { transform: rotate(45deg) translateY(-20px) scale(1); opacity: 1; }
+            100% { transform: rotate(45deg) translateY(0) scale(0.8); opacity: 0.7; }
+        }
+
+        /* 主卡片样式 */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: clamp(15px, 3vw, 30px);
+            box-shadow: 0 10px 30px rgba(255, 82, 122, 0.3);
+            text-align: center;
+            z-index: 2;
+            max-width: 600px;
+            width: 100%;
+            margin-bottom: clamp(20px, 5vw, 40px);
+        }
+
+        h1 {
+            color: #ff416c;
+            margin-bottom: 10px;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+
+        /* 正计时模块 */
+        .timer {
+            background: #fff0f3;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .timer-title {
+            color: #ff416c;
+            margin-bottom: 15px;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+        }
+
+        .timer-content {
+            display: flex;
+            justify-content: center;
+            gap: clamp(5px, 2vw, 10px);
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            background: #ff416c;
+            color: white;
+            padding: clamp(8px, 2vw, 10px) clamp(12px, 2vw, 15px);
+            border-radius: 10px;
+            min-width: clamp(60px, 8vw, 70px);
+        }
+
+        .time-num {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: bold;
+        }
+
+        .time-text {
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            margin-top: 5px;
+        }
+
+        /* 跳转按钮 */
+        .btn-group {
+            display: flex;
+            gap: clamp(10px, 2vw, 15px);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .jump-btn {
+            padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 25px);
+            background: #ff416c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: clamp(100px, 15vw, 120px);
+        }
+
+        .jump-btn:hover {
+            background: #ff2d55;
+            transform: scale(1.05);
+        }
+
+        /* 底部随机情话 */
+        #randomMsg {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: clamp(8px, 2vw, 10px) clamp(12px, 2vw, 15px);
+            border-radius: 20px;
+            border: 2px solid #ff416c;
+            color: #ff416c;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            z-index: 9998;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        /* 心愿树核心样式 */
+        .wish-tree-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: clamp(20px, 4vw, 30px);
+            box-shadow: 0 10px 30px rgba(255, 82, 122, 0.3);
+            z-index: 2;
+            max-width: clamp(300px, 90vw, 800px);
+            width: 100%;
+            margin-bottom: clamp(30px, 5vw, 60px);
+            text-align: center;
+        }
+
+        .wish-tree-title {
+            color: #FF4081;
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
+            margin-bottom: clamp(20px, 4vw, 30px);
+            position: relative;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .wish-tree-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #FF4081;
+        }
+
+        .wish-tree-title span {
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            margin-left: 8px;
+        }
+
+        /* 树容器（保证居中+比例） */
+        .tree-wrapper {
+            position: relative;
+            width: clamp(180px, 32vw, 280px);
+            height: clamp(280px, 42vw, 380px);
+            margin: 0 auto clamp(20px, 3vw, 30px);
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        /* 树干 */
+        .tree-trunk {
+            position: absolute;
+            bottom: 0;
+            width: clamp(20px, 3vw, 30px);
+            height: clamp(90px, 22vw, 130px);
+            background: #795548;
+            border-radius: 3px 3px 0 0;
+            z-index: 2;
+        }
+
+        /* 对称分枝 */
+        .tree-main-branch {
+            position: absolute;
+            background: #8D6E63;
+            display: none;
+            z-index: 3;
+            border-radius: 2px;
+        }
+
+        .main-branch-left {
+            width: clamp(8px, 1.5vw, 12px);
+            height: clamp(75px, 18vw, 110px);
+            bottom: clamp(80px, 18vw, 120px);
+            left: 50%;
+            transform: translateX(-70%) rotate(-40deg);
+        }
+
+        .main-branch-right {
+            width: clamp(8px, 1.5vw, 12px);
+            height: clamp(75px, 18vw, 110px);
+            bottom: clamp(80px, 18vw, 120px);
+            right: 50%;
+            transform: translateX(70%) rotate(40deg);
+        }
+
+        .tree-sub-branch {
+            position: absolute;
+            background: #8D6E63;
+            display: none;
+            z-index: 3;
+            border-radius: 2px;
+        }
+
+        .sub-branch-1 {
+            width: clamp(6px, 1.2vw, 10px);
+            height: clamp(45px, 12vw, 70px);
+            bottom: clamp(95px, 20vw, 130px);
+            left: 50%;
+            transform: translateX(-90%) rotate(-55deg);
+        }
+
+        .sub-branch-2 {
+            width: clamp(6px, 1.2vw, 10px);
+            height: clamp(45px, 12vw, 70px);
+            bottom: clamp(95px, 20vw, 130px);
+            right: 50%;
+            transform: translateX(90%) rotate(55deg);
+        }
+
+        /* 树冠基底 */
+        .tree-canopy-base {
+            position: absolute;
+            bottom: clamp(110px, 25vw, 160px);
+            width: clamp(140px, 28vw, 220px);
+            height: clamp(110px, 24vw, 180px);
+            background: #F9FBE7;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        /* 6个对称美观的果实（渐变+阴影+大小错落） */
+        .canopy-dot {
+            position: absolute;
+            background: linear-gradient(135deg, #FFE0E9, #FF8A80);
+            border-radius: 50%;
+            display: none;
+            z-index: 2;
+            animation: dotPulse 4s ease-in-out infinite;
+            box-shadow: 0 2px 6px rgba(255, 138, 128, 0.3);
+        }
+
+        .dot-1 { top: clamp(30px, 8vw, 60px); left: clamp(25px, 7vw, 55px); width: clamp(10px, 1.7vw, 16px); height: clamp(10px, 1.7vw, 16px); }
+        .dot-2 { top: clamp(30px, 8vw, 60px); right: clamp(25px, 7vw, 55px); width: clamp(9px, 1.6vw, 15px); height: clamp(9px, 1.6vw, 15px); }
+        .dot-3 { top: clamp(60px, 12vw, 90px); left: clamp(50px, 10vw, 80px); width: clamp(11px, 1.8vw, 17px); height: clamp(11px, 1.8vw, 17px); }
+        .dot-4 { top: clamp(60px, 12vw, 90px); right: clamp(50px, 10vw, 80px); width: clamp(10px, 1.7vw, 16px); height: clamp(10px, 1.7vw, 16px); }
+        .dot-5 { top: clamp(45px, 10vw, 75px); left: clamp(75px, 12vw, 105px); width: clamp(9px, 1.6vw, 15px); height: clamp(9px, 1.6vw, 15px); }
+        .dot-6 { top: clamp(45px, 10vw, 75px); right: clamp(75px, 12vw, 105px); width: clamp(11px, 1.8vw, 17px); height: clamp(11px, 1.8vw, 17px); }
+
+        @keyframes dotPulse {
+            0% { transform: scale(0.9); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.8; }
+        }
+
+        /* 6个对称树叶（自然摆动） */
+        .tree-leaf {
+            position: absolute;
+            width: clamp(16px, 2.2vw, 24px);
+            height: clamp(10px, 1.5vw, 18px);
+            background: linear-gradient(135deg, #C8E6C9, #A5D6A7);
+            border-radius: 60% 40%;
+            z-index: 4;
+            animation: leafFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes leafFloat {
+            0% { transform: rotate(0deg) translate(0,0) scale(1); }
+            50% { transform: rotate(5deg) translate(-1px, -2px) scale(1.05); }
+            100% { transform: rotate(0deg) translate(0,0) scale(1); }
+        }
+
+        /* 心愿输入区域 */
+        .wish-input-area {
+            margin-bottom: clamp(15px, 3vw, 20px);
+            display: flex;
+            gap: clamp(8px, 2vw, 10px);
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 clamp(8px, 2vw, 10px);
+        }
+
+        #wishInput {
+            flex: 1;
+            min-width: clamp(180px, 60vw, 500px);
+            padding: clamp(10px, 2vw, 12px) clamp(12px, 2vw, 15px);
+            border: 2px solid #ffced8;
+            border-radius: 10px;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #wishInput:focus {
+            border-color: #ff416c;
+        }
+
+        .add-wish-btn {
+            padding: clamp(10px, 2vw, 12px) clamp(15px, 2vw, 20px);
+            background: #ff416c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .add-wish-btn:hover {
+            background: #ff2d55;
+            transform: scale(1.05);
+        }
+
+        /* 心愿卡片容器 */
+        .wish-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(10px, 2vw, 15px);
+            justify-content: center;
+            margin-top: clamp(15px, 3vw, 20px);
+            padding: 0 clamp(8px, 2vw, 10px);
+        }
+
+        .wish-card {
+            background: #fff0f3;
+            border-radius: 15px;
+            padding: clamp(12px, 2vw, 15px);
+            min-width: clamp(150px, 30vw, 180px);
+            max-width: clamp(200px, 40vw, 250px);
+            box-shadow: 0 5px 15px rgba(255, 82, 122, 0.2);
+            position: relative;
+            animation: wishCardFadeIn 0.5s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes wishCardFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wish-card::before {
+            content: '❤️';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(14px, 2vw, 18px);
+        }
+
+        .wish-text {
+            color: #ff416c;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            line-height: 1.5;
+            margin-bottom: 8px;
+            word-break: break-all;
+        }
+
+        .wish-time {
+            color: #999;
+            font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+            text-align: right;
+        }
+
+        .delete-wish-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: transparent;
+            border: none;
+            color: #ff416c;
+            cursor: pointer;
+            font-size: clamp(12px, 1.5vw, 14px);
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .delete-wish-btn:hover {
+            opacity: 1;
+        }
+
+        /* 提示弹窗 */
+        .wish-tip {
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ff416c;
+            font-size: clamp(1rem, 4vw, 1.8rem);
+            font-weight: bold;
+            text-shadow: 0 2px 6px rgba(255, 82, 122, 0.3);
+            opacity: 0;
+            z-index: 9999;
+            animation: tipFade 1.5s ease-in-out forwards;
+        }
+
+        @keyframes tipFade {
+            0% { opacity: 0; transform: translate(-50%, -60%); }
+            50% { opacity: 1; transform: translate(-50%, -50%); }
+            100% { opacity: 0; transform: translate(-50%, -40%); }
+        }

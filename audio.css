@@ -1,0 +1,29 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: transparent; /* 透明背景 */
+            width: 60px;
+            height: 60px;
+            overflow: hidden;
+        }
+        .audio-control {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid #ff416c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        .audio-control:hover {
+            background: #ff416c;
+            color: white;
+        }
